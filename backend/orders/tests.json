@@ -1,0 +1,36 @@
+{
+  "tests": [
+    {
+      "name": "Create new order",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Ivan Petrov",
+        "phone": "+79991234567",
+        "service": "Уборка 2-комнатной квартиры",
+        "message": "Нужна уборка в субботу"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "order": {
+          "id": "number",
+          "name": "string",
+          "phone": "string",
+          "service": "string",
+          "status": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get all orders",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "orders": "array"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
